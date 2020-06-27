@@ -97,6 +97,14 @@ function checkprint( $message )
     print( $message );
 }
 
+function checkoutputclose()
+{
+    if( isset( $checkfout ) && $checkfout !== FALSE ) {
+        fclose( $checkfout );
+        $checkfout = FALSE;
+    }
+}
+
 function report()
 {
     global $checkfails, $checktests;

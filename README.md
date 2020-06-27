@@ -57,3 +57,10 @@ before testing.
 ## checkstrtrim( $result, $expected )
 
 Like `checkstr()` but right trims the input strings before testing.
+
+## Testing
+
+cd to the `test` directory then run `php test-cl-phpunittest.php`.  The test
+run will show failing tests.  This is intentional to detect failing test
+scenarios.  The primary test is comparing the generated test output with
+the reference test output.
