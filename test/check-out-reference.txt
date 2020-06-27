@@ -8,14 +8,15 @@ This section should all PASS (OK) at: test-cl-phpunittest.php: 4
     ok: Test is Test
     ok: String test is Test
     ok: strlen( 'Test' ) is 4
-    ok: 1 == 1 is 1
-    ok: 1 != 1 is 
-    ok: 1 is 1
-    ok: True is 1
+    ok: 1 == 1 is True
+    ok: 1 != 1 is False
+    ok: True is True
+    ok: True is True
     ok: Test is Test
     ok: String test is Test
     ok: Test is Test
     ok: Test is Test
+
 This section should all FAIL (NOT OK) at: test-cl-phpunittest.php: 29
 =====================================================================
 Not ok: With:     Test

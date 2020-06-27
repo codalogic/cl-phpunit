@@ -4,6 +4,8 @@ $checkfout = NULL;
 
 function checkheading( $what )
 {
+    global $checktests;
+
     $what .= " at: " . checkcallsite();
     $underline = str_repeat( "=", strlen( $what ) );
     if( $checktests != 0 )
@@ -59,7 +61,7 @@ function checkcompare( $what, $result, $expected )
     $checktests++;
 
     if( $result === $expected ) {
-        checkprint( "    ok: $what is $expected\n" );
+        checkprint( "    ok: " . checkdisplayable( $what ) . " is " . checkdisplayable( $expected ) . "\n" );
     }
     else {
         checkprint( "Not ok: With:     $what\n" .
