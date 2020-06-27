@@ -2,58 +2,6 @@
 $checkfails = $checktests = 0;
 $checkfout = NULL;
 
-function check( $what, $result, $expected = NULL )
-{
-    # Allow $what to be optional
-    if( ! isset( $expected ) ) {
-        $expected = $result;
-        $result = eval( "return " . $what . ";" );
-    }
-
-    if( is_bool( $expected ) )
-        checkbool( $what, $result, $expected );
-    else if( is_num( $expected ) )
-        checknum( $what, $result, $expected );
-    else
-        checkstr( $what, $result, $expected );
-}
-
-function checkstr( $what, $result, $expected )
-{
-    global $checkfails, $checktests;
-    $checktests++;
-
-    $result = rtrim( $result );
-    $expected = rtrim( $expected );
-    if( $result === $expected ) {
-        checkprint( "    ok: $what is $expected\n" );
-    }
-    else {
-        checkprint( "Not ok: With:     $what\n" .
-               "        Expected: $expected\n" .
-               "        Got:      $result\n" .
-               "        at:       " . checkcallsite() . "\n" );
-        $checkfails++;
-    }
-}
-
-function checkbool( $what, $result, $expected = NULL )
-{
-    if( ! function_exists('bool_to_string') )
-    {
-        function bool_to_string( $b ) { return $b ? "True" : "False"; }
-    }
-
-    if( ! is_string( $what ) )
-        $what = bool_to_string( $what );
-    checkstr( $what, bool_to_string( $result ), bool_to_string( $expected ) );
-}
-
-function checknum( $what, $result, $expected )
-{
-    checkstr( strval( $result ), strval( $expected ) );
-}
-
 function checkheading( $what )
 {
     $what .= " at: " . checkcallsite();
@@ -65,12 +13,68 @@ function checkheading( $what )
         "$underline\n" );
 }
 
+function check( $what, $result, $expected = NULL )
+{
+    # Allow $what to be optional
+    if( ! isset( $expected ) ) {
+        $expected = $result;
+        $result = eval( "return " . checkdisplayable( $what ) . ";" );
+    }
+
+    checkcompare( $what, $result, $expected );
+}
+
+function checkstr( $what, $result, $expected = NULL )
+{
+    # Allow $what to be optional
+    if( ! isset( $expected ) ) {
+        $expected = $result;
+        $result = $what;
+    }
+
+    checkcompare( $what, $result, $expected );
+}
+
+function checkrtrim( $what, $result, $expected = NULL )
+{
+    check( rtrim( $what ), rtrim( $result ), isset( $expected ) ? rtrim( $expected ) : NULL );
+}
+
+function checkstrrtrim( $what, $result, $expected = NULL )
+{
+    checkstr( rtrim( $what ), rtrim( $result ), isset( $expected ) ? rtrim( $expected ) : NULL );
+}
+
 function failed( $reason )
 {
     global $checkfails, $checktests;
     $checktests++;
     $checkfails++;
-    checkprint( "Not ok: $reason\n" );
+    checkprint( "Not ok: \"$reason\" at " . checkcallsite() . "\n" );
+}
+
+function checkcompare( $what, $result, $expected )
+{
+    global $checkfails, $checktests;
+    $checktests++;
+
+    if( $result === $expected ) {
+        checkprint( "    ok: $what is $expected\n" );
+    }
+    else {
+        checkprint( "Not ok: With:     $what\n" .
+                    "        Expected: " . checkdisplayable( $expected ) . "\n" .
+                    "        Got:      " . checkdisplayable( $result ) . "\n" .
+                    "        at:       " . checkcallsite() . "\n" );
+        $checkfails++;
+    }
+}
+
+function checkdisplayable( $v )
+{
+    if( is_bool( $v ) )
+        return $v ? "True" : "False";
+    return strval( $v );
 }
 
 function checkcallsite()
