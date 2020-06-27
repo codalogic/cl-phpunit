@@ -1,7 +1,9 @@
 # cl-phpunittest
-A REALLY simple file for testing PHP.
+
+A REALLY simple file for unit testing PHP.
 
 ## Usage
+
 Download `cl-phpunittest.php` to a test directory.
 
 In the test directory write code like this:
@@ -75,7 +77,7 @@ The `$expected` parameter is the expected result.  It can be any PHP type.
 Example:
 
 ```php
-check( "is_digit() say 1 is a digit", is_digit( '1' ), True );
+check( "strlen() should indicate 'Test' is 4 characters long", strlen( 'Test' ), 4 );
 ```
 
 Note that the test that is run is NOT given to the function as a string.

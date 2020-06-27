@@ -13,6 +13,7 @@ check( "Test", "Test" );
 check( "String test", "Test", "Test" );
 
 check( "strlen( 'Test' )", 4 );
+check( "strlen() should indicate 'Test' is 4 characters long", strlen( 'Test' ), 4 );
 
 check( "1 == 1", True );
 check( "1 != 1", False );
