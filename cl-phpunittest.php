@@ -1,6 +1,7 @@
 <?php
 $checkfails = $checktests = 0;
 $checkfout = NULL;
+$checktodos = [];
 
 function checkglobber()
 {
@@ -64,6 +65,15 @@ function checkfailed( $reason )
     checkprint( "Not ok: \"$reason\" at " . checkcallsite() . "\n" );
 }
 
+function checktodo( $task )
+{
+    global $checktodos;
+
+    $task = "\"$task\" at " . checkcallsite();
+    checkprint( "  TODO: $task\n" );
+    $checktodos[] = $task;
+}
+
 function checkcompare( $what, $result, $expected )
 {
     global $checkfails, $checktests;
@@ -125,7 +135,15 @@ function checkoutputclose()
 
 function report()
 {
-    global $checkfails, $checktests;
-    checkprint( "$checkfails fails, $checktests tests\n" );
+    global $checkfails, $checktests, $checktodos;
+
+    $num_todos = count( $checktodos );
+    if( $num_todos > 0 ) {
+        checkprint( "\n    TODOs:\n");
+        foreach( $checktodos as $task )
+            checkprint( "    - $task\n" );
+    }
+
+    checkprint( "\n$checkfails fails, $num_todos todos, $checktests tests\n" );
 }
 ?>

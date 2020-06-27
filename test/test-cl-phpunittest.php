@@ -55,6 +55,8 @@ checkfailed( "Too much effort" );
 
 checkglobber();
 
+checktodo( "Bring peace to the world" );
+
 report();
 
 checkoutputclose();

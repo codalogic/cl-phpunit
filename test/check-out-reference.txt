@@ -89,4 +89,9 @@ In Extra1 checking checkglobber() at: test-extra1.php: 2
 In Extra2 checking checkglobber() at: test-extra2.php: 2
 ========================================================
     ok: Extra2 --> Extra2
-16 fails, 35 tests
+  TODO: "Bring peace to the world" at test-cl-phpunittest.php: 58
+
+    TODOs:
+    - "Bring peace to the world" at test-cl-phpunittest.php: 58
+
+16 fails, 1 todos, 35 tests

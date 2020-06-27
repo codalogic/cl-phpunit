@@ -117,6 +117,10 @@ if( $a != $b || $c != $d )
     checkfailed( 'Complex test condition was not met' );
 ```
 
+## checktodo( $task )
+
+Record a TODO task in the output.
+
 ## Testing
 
 cd to the `test` directory then run `php test-cl-phpunittest.php`.  The test
