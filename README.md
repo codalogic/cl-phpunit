@@ -105,6 +105,18 @@ before testing.
 
 Like `checkstr()` but right trims the input strings before testing.
 
+## checkfailed( $reason )
+
+Record that a test not directly implemented with the `check???()` functions
+has failed.
+
+Example:
+
+```php
+if( $a != $b || $c != $d )
+    checkfailed( 'Complex test condition was not met' );
+```
+
 ## Testing
 
 cd to the `test` directory then run `php test-cl-phpunittest.php`.  The test

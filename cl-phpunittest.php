@@ -56,7 +56,7 @@ function checkstrrtrim( $what, $result, $expected = NULL )
     checkstr( rtrim( $what ), rtrim( $result ), isset( $expected ) ? rtrim( $expected ) : NULL );
 }
 
-function failed( $reason )
+function checkfailed( $reason )
 {
     global $checkfails, $checktests;
     $checktests++;

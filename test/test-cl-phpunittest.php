@@ -51,7 +51,7 @@ checkstr( "String test", "Test", "Test2" );
 checkrtrim( "Test\n", "Test2" );
 checkstrrtrim( "Test\n", "Test2" );
 
-failed( "Too much effort" );
+checkfailed( "Too much effort" );
 
 checkglobber();
 
