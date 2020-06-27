@@ -2,16 +2,25 @@
 $checkfails = $checktests = 0;
 $checkfout = NULL;
 
-function checkheading( $what )
+function checkglobber()
+{
+    $calling_file = checkcallfile();
+    foreach( glob( 'test-*.php' ) as $test_file ) {
+        if( $test_file != $calling_file )
+            include_once( $test_file );
+    }
+}
+
+function  checkheading( $heading )
 {
     global $checktests;
 
-    $what .= " at: " . checkcallsite();
-    $underline = str_repeat( "=", strlen( $what ) );
+    $heading .= " at: " . checkcallsite();
+    $underline = str_repeat( "=", strlen( $heading ) );
     if( $checktests != 0 )
         checkprint( "\n" );
     checkprint(
-        "$what\n" .
+        "$heading\n" .
         "$underline\n" );
 }
 
@@ -79,13 +88,20 @@ function checkdisplayable( $v )
     return strval( $v );
 }
 
-function checkcallsite()
+function checkcallsite( $want_line_num = True )
 {
     $backtrace = debug_backtrace();
     $index = 0;
     while( $backtrace[$index]["file"] == __FILE__ )
         ++$index;
-    return basename( $backtrace[$index]["file"] ) . ": " . $backtrace[$index]["line"];
+    if( $want_line_num )
+        return basename( $backtrace[$index]["file"] ) . ": " . $backtrace[$index]["line"];
+    return basename( $backtrace[$index]["file"] );
+}
+
+function checkcallfile()
+{
+    return checkcallsite( False );
 }
 
 function checkprint( $message )

@@ -32,6 +32,20 @@ report();
 ?>
 ```
 
+Alternatively, if you have lots of test files, your main test file can look
+like the following and `checkglobber()` will glob() looking for test files
+named `test-*.php` in the current directory.
+
+```php
+<?php
+include( 'cl-phpunittest.php' );
+
+checkglobber();
+
+report();
+?>
+```
+
 It ain't pretty!!!
 
 ## check( $statement, $expected )
@@ -41,6 +55,12 @@ exceuted.
 
 The `$expected` parameter is the expected result.  It can be any PHP type.
 
+Example:
+
+```php
+check( "is_digit( '1' )", True );
+```
+
 ## checkstr( $result, $expected )
 
 If you want to compare string values without executing what is in the string
@@ -48,6 +68,12 @@ use `checkstr()`.
 
 The `$result` parameter is a string to be compared against the `$expected`
 parameter.  Both are strings.
+
+Example:
+
+```php
+checkstr( $output, "String 1" );
+```
 
 ## checkrtrim( $statement, $expected )
 
@@ -63,4 +89,5 @@ Like `checkstr()` but right trims the input strings before testing.
 cd to the `test` directory then run `php test-cl-phpunittest.php`.  The test
 run will show failing tests.  This is intentional to detect failing test
 scenarios.  The primary test is comparing the generated test output with
-the reference test output.
+the reference test output (which is done in the final few lines of the test
+file).

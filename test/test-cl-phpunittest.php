@@ -52,6 +52,8 @@ checkstrrtrim( "Test\n", "Test2" );
 
 failed( "Too much effort" );
 
+checkglobber();
+
 report();
 
 checkoutputclose();

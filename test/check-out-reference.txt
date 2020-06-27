@@ -80,4 +80,12 @@ Not ok: With:     Test
         Got:      Test
         at:       test-cl-phpunittest.php: 51
 Not ok: "Too much effort" at test-cl-phpunittest.php: 53
-16 fails, 32 tests
+
+In Extra1 checking checkglobber() at: test-extra1.php: 2
+========================================================
+    ok: Extra1 is Extra1
+
+In Extra2 checking checkglobber() at: test-extra2.php: 2
+========================================================
+    ok: Extra2 is Extra2
+16 fails, 34 tests
