@@ -133,7 +133,7 @@ function checkoutputclose()
     }
 }
 
-function report()
+function checkreport()
 {
     global $checkfails, $checktests, $checktodos;
 

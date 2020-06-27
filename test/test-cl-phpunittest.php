@@ -57,7 +57,7 @@ checkglobber();
 
 checktodo( "Bring peace to the world" );
 
-report();
+checkreport();
 
 checkoutputclose();
 

@@ -16,7 +16,7 @@ include( '../my-file-to-test.php' );
 check( "<string with what I'm testing>", <value of what I hope to get> );
 ...
 
-report();
+checkreport();
 ?>
 ```
 
@@ -30,7 +30,7 @@ include( 'test-my-first-file.php' );
 include( 'test-my-second-file.php' );
 ...
 
-report();
+checkreport();
 ?>
 ```
 
@@ -44,7 +44,7 @@ include( 'cl-phpunittest.php' );
 
 checkglobber();
 
-report();
+checkreport();
 ?>
 ```
 
@@ -120,6 +120,14 @@ if( $a != $b || $c != $d )
 ## checktodo( $task )
 
 Record a TODO task in the output.
+
+## checkreport()
+
+Display tally of number of tests performed and number of fails.
+
+## checkoutputclose()
+
+Stop printing results to the logging file and close it.
 
 ## Testing
 
