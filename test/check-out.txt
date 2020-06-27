@@ -1,91 +1,92 @@
 This section should all PASS (OK) at: test-cl-phpunittest.php: 4
 ================================================================
-    ok: 1 is 1
-    ok: 2 is 2
-    ok: Number test is 1
-    ok: 1 is 1
-    ok: 1 + 1 is 2
-    ok: Test is Test
-    ok: String test is Test
-    ok: strlen( 'Test' ) is 4
-    ok: 1 == 1 is True
-    ok: 1 != 1 is False
-    ok: True is True
-    ok: True is True
-    ok: Test is Test
-    ok: String test is Test
-    ok: Test is Test
-    ok: Test is Test
+    ok: 1 --> 1
+    ok: 2 --> 2
+    ok: Number test --> 1
+    ok: 1 --> 1
+    ok: 1 + 1 --> 2
+    ok: Test --> Test
+    ok: String test --> Test
+    ok: strlen( 'Test' ) --> 4
+    ok: strlen() should indicate 'Test' is 4 characters long --> 4
+    ok: 1 == 1 --> True
+    ok: 1 != 1 --> False
+    ok: True --> True
+    ok: True --> True
+    ok: Test --> Test
+    ok: String test --> Test
+    ok: Test --> Test
+    ok: Test --> Test
 
-This section should all FAIL (NOT OK) at: test-cl-phpunittest.php: 29
+This section should all FAIL (NOT OK) at: test-cl-phpunittest.php: 30
 =====================================================================
 Not ok: With:     Test
         Expected: 2
         Got:      Test
-        at:       test-cl-phpunittest.php: 31
+        at:       test-cl-phpunittest.php: 32
 Not ok: With:     1
         Expected: 2
         Got:      1
-        at:       test-cl-phpunittest.php: 33
+        at:       test-cl-phpunittest.php: 34
 Not ok: With:     2
         Expected: 3
         Got:      2
-        at:       test-cl-phpunittest.php: 34
+        at:       test-cl-phpunittest.php: 35
 Not ok: With:     1 + 1
         Expected: 3
         Got:      2
-        at:       test-cl-phpunittest.php: 35
+        at:       test-cl-phpunittest.php: 36
 Not ok: With:     Test
-        Expected: Test2
-        Got:      Test
-        at:       test-cl-phpunittest.php: 37
-Not ok: With:     String test
         Expected: Test2
         Got:      Test
         at:       test-cl-phpunittest.php: 38
-Not ok: With:     strlen( 'Test' )
-        Expected: 5
-        Got:      4
-        at:       test-cl-phpunittest.php: 40
-Not ok: With:     1 == 1
-        Expected: False
-        Got:      True
-        at:       test-cl-phpunittest.php: 42
-Not ok: With:     1 != 1
-        Expected: True
-        Got:      False
-        at:       test-cl-phpunittest.php: 43
-Not ok: With:     1
-        Expected: False
-        Got:      True
-        at:       test-cl-phpunittest.php: 44
-Not ok: With:     True
-        Expected: False
-        Got:      True
-        at:       test-cl-phpunittest.php: 45
-Not ok: With:     Test
-        Expected: Test2
-        Got:      Test
-        at:       test-cl-phpunittest.php: 47
 Not ok: With:     String test
         Expected: Test2
         Got:      Test
-        at:       test-cl-phpunittest.php: 48
+        at:       test-cl-phpunittest.php: 39
+Not ok: With:     strlen( 'Test' )
+        Expected: 5
+        Got:      4
+        at:       test-cl-phpunittest.php: 41
+Not ok: With:     1 == 1
+        Expected: False
+        Got:      True
+        at:       test-cl-phpunittest.php: 43
+Not ok: With:     1 != 1
+        Expected: True
+        Got:      False
+        at:       test-cl-phpunittest.php: 44
+Not ok: With:     1
+        Expected: False
+        Got:      True
+        at:       test-cl-phpunittest.php: 45
+Not ok: With:     True
+        Expected: False
+        Got:      True
+        at:       test-cl-phpunittest.php: 46
 Not ok: With:     Test
         Expected: Test2
         Got:      Test
-        at:       test-cl-phpunittest.php: 50
+        at:       test-cl-phpunittest.php: 48
+Not ok: With:     String test
+        Expected: Test2
+        Got:      Test
+        at:       test-cl-phpunittest.php: 49
 Not ok: With:     Test
         Expected: Test2
         Got:      Test
         at:       test-cl-phpunittest.php: 51
-Not ok: "Too much effort" at test-cl-phpunittest.php: 53
+Not ok: With:     Test
+        Expected: Test2
+        Got:      Test
+        at:       test-cl-phpunittest.php: 52
+Not ok: "Too much effort" at test-cl-phpunittest.php: 54
 
 In Extra1 checking checkglobber() at: test-extra1.php: 2
 ========================================================
-    ok: Extra1 is Extra1
+    ok: Extra1 --> Extra1
 
 In Extra2 checking checkglobber() at: test-extra2.php: 2
 ========================================================
-    ok: Extra2 is Extra2
-16 fails, 34 tests
+    ok: Extra2 --> Extra2
+16 fails, 35 tests

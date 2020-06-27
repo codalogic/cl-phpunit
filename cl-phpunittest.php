@@ -70,7 +70,7 @@ function checkcompare( $what, $result, $expected )
     $checktests++;
 
     if( $result === $expected ) {
-        checkprint( "    ok: " . checkdisplayable( $what ) . " is " . checkdisplayable( $expected ) . "\n" );
+        checkprint( "    ok: " . checkdisplayable( $what ) . " --> " . checkdisplayable( $expected ) . "\n" );
     }
     else {
         checkprint( "Not ok: With:     $what\n" .
