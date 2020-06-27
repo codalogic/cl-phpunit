@@ -61,6 +61,25 @@ Example:
 check( "is_digit( '1' )", True );
 ```
 
+## check( $description, $result, $expected )
+
+The 3 argument form of `check()` takes a leading test description argument.
+
+The `$description` argument describes the test.
+
+The `$result` parameter is result of the test. It is NOT `eval`ed by the
+function.
+
+The `$expected` parameter is the expected result.  It can be any PHP type.
+
+Example:
+
+```php
+check( "is_digit() say 1 is a digit", is_digit( '1' ), True );
+```
+
+Note that the test that is run is NOT given to the function as a string.
+
 ## checkstr( $result, $expected )
 
 If you want to compare string values without executing what is in the string
