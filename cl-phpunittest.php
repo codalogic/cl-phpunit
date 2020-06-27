@@ -21,8 +21,8 @@ function  checkheading( $heading )
     if( $checktests != 0 )
         checkprint( "\n" );
     checkprint(
-        "$heading\n" .
-        "$underline\n" );
+        "       $heading\n" .
+        "       $underline\n" );
 }
 
 function check( $what, $result, $expected = NULL )
@@ -105,7 +105,7 @@ function checkcallsite( $want_line_num = True )
     while( $backtrace[$index]["file"] == __FILE__ )
         ++$index;
     if( $want_line_num )
-        return basename( $backtrace[$index]["file"] ) . ": " . $backtrace[$index]["line"];
+        return basename( $backtrace[$index]["file"] ) . "(" . $backtrace[$index]["line"] . ")";
     return basename( $backtrace[$index]["file"] );
 }
 

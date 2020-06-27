@@ -1,5 +1,5 @@
-This section should all PASS (OK) at: test-cl-phpunittest.php: 4
-================================================================
+       This section should all PASS (OK) at: test-cl-phpunittest.php(4)
+       ================================================================
     ok: 1 --> 1
     ok: 2 --> 2
     ok: Number test --> 1
@@ -18,80 +18,80 @@ This section should all PASS (OK) at: test-cl-phpunittest.php: 4
     ok: Test --> Test
     ok: Test --> Test
 
-This section should all FAIL (NOT OK) at: test-cl-phpunittest.php: 30
-=====================================================================
+       This section should all FAIL (NOT OK) at: test-cl-phpunittest.php(30)
+       =====================================================================
 Not ok: With:     Test
         Expected: 2
         Got:      Test
-        at:       test-cl-phpunittest.php: 32
+        at:       test-cl-phpunittest.php(32)
 Not ok: With:     1
         Expected: 2
         Got:      1
-        at:       test-cl-phpunittest.php: 34
+        at:       test-cl-phpunittest.php(34)
 Not ok: With:     2
         Expected: 3
         Got:      2
-        at:       test-cl-phpunittest.php: 35
+        at:       test-cl-phpunittest.php(35)
 Not ok: With:     1 + 1
         Expected: 3
         Got:      2
-        at:       test-cl-phpunittest.php: 36
+        at:       test-cl-phpunittest.php(36)
 Not ok: With:     Test
         Expected: Test2
         Got:      Test
-        at:       test-cl-phpunittest.php: 38
+        at:       test-cl-phpunittest.php(38)
 Not ok: With:     String test
         Expected: Test2
         Got:      Test
-        at:       test-cl-phpunittest.php: 39
+        at:       test-cl-phpunittest.php(39)
 Not ok: With:     strlen( 'Test' )
         Expected: 5
         Got:      4
-        at:       test-cl-phpunittest.php: 41
+        at:       test-cl-phpunittest.php(41)
 Not ok: With:     1 == 1
         Expected: False
         Got:      True
-        at:       test-cl-phpunittest.php: 43
+        at:       test-cl-phpunittest.php(43)
 Not ok: With:     1 != 1
         Expected: True
         Got:      False
-        at:       test-cl-phpunittest.php: 44
+        at:       test-cl-phpunittest.php(44)
 Not ok: With:     1
         Expected: False
         Got:      True
-        at:       test-cl-phpunittest.php: 45
+        at:       test-cl-phpunittest.php(45)
 Not ok: With:     True
         Expected: False
         Got:      True
-        at:       test-cl-phpunittest.php: 46
+        at:       test-cl-phpunittest.php(46)
 Not ok: With:     Test
         Expected: Test2
         Got:      Test
-        at:       test-cl-phpunittest.php: 48
+        at:       test-cl-phpunittest.php(48)
 Not ok: With:     String test
         Expected: Test2
         Got:      Test
-        at:       test-cl-phpunittest.php: 49
+        at:       test-cl-phpunittest.php(49)
 Not ok: With:     Test
         Expected: Test2
         Got:      Test
-        at:       test-cl-phpunittest.php: 51
+        at:       test-cl-phpunittest.php(51)
 Not ok: With:     Test
         Expected: Test2
         Got:      Test
-        at:       test-cl-phpunittest.php: 52
-Not ok: "Too much effort" at test-cl-phpunittest.php: 54
+        at:       test-cl-phpunittest.php(52)
+Not ok: "Too much effort" at test-cl-phpunittest.php(54)
 
-In Extra1 checking checkglobber() at: test-extra1.php: 2
-========================================================
+       In Extra1 checking checkglobber() at: test-extra1.php(2)
+       ========================================================
     ok: Extra1 --> Extra1
 
-In Extra2 checking checkglobber() at: test-extra2.php: 2
-========================================================
+       In Extra2 checking checkglobber() at: test-extra2.php(2)
+       ========================================================
     ok: Extra2 --> Extra2
-  TODO: "Bring peace to the world" at test-cl-phpunittest.php: 58
+  TODO: "Bring peace to the world" at test-cl-phpunittest.php(58)
 
     TODOs:
-    - "Bring peace to the world" at test-cl-phpunittest.php: 58
+    - "Bring peace to the world" at test-cl-phpunittest.php(58)
 
 16 fails, 1 todos, 35 tests
