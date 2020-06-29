@@ -146,4 +146,29 @@ function checkreport()
 
     checkprint( "\n$checkfails fails, $num_todos todos, $checktests tests\n" );
 }
+
+class CheckStopwatch {
+    private $start_time = 0;
+    private $stop_time = 0;
+
+    function __construct() {
+        $this->Start();
+    }
+
+    public function Start() {
+        $this->stop_time = 0;
+        $this->start_time = microtime(True);
+    }
+
+    public function Stop() {
+        $this->stop_time = microtime(True);
+    }
+
+    public function ElapsedMilliSeconds() {
+        $end_time = $this->stop_time;
+        if( $end_time == 0 )
+            $end_time = microtime(True);
+        return (int)(($end_time - $this->start_time) * 1000.0);
+    }
+}
 ?>

@@ -129,6 +129,21 @@ Display tally of number of tests performed and number of fails.
 
 Stop printing results to the logging file and close it.
 
+## class CheckStopwatch
+
+`CheckStopwatch` is a simple stopwatch class to help compare implementation
+options.
+
+The stopwatch starts running as soon as it is constructed.
+
+You can read the elapsed time at any time by calling `ElapsedMilliseconds()`
+method.  This does not stop the stopwatch running.
+
+To stop the stopwatch call the `Stop()` method.  After calling `Stop()`,
+repeated calls to `ElapsedMilliseconds()` will return the same time.
+
+To re-start the stopwatch call the `Start()` method.
+
 ## Testing
 
 cd to the `test` directory then run `php test-cl-phpunittest.php`.  The test
