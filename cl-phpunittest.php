@@ -5,11 +5,9 @@ $checktodos = [];
 
 function checkglobber()
 {
-    $calling_file = checkcallfile();
-    foreach( glob( 'test-*.php' ) as $test_file ) {
-        if( $test_file != $calling_file )
-            include_once( $test_file );
-    }
+    foreach( glob( 'test-*.php' ) as $test_file )
+        include_once( $test_file );
+    // Note: Using `include_once()` will ensure that the file that calls `checkglobber()` will not be re-included
 }
 
 function checkfeature( $heading, $func )
