@@ -54,7 +54,7 @@ checkreport();
 ?>
 ```
 
-__N.B. A issue with `checkglobber()`__ is that included files end up being in the
+__N.B. An issue with `checkglobber()`__ is that included files end up being in the
 scope of the `checkglobber()` function.  This is generally not a probelm unless
 an included file attempts to set global variables (without explicitly
 identifying the variables as global).  To get around this problem, instead of:
