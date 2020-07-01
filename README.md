@@ -2,7 +2,7 @@
 
 A REALLY simple file for unit testing PHP.
 
-## Usage
+## Overview
 
 Download `cl-phpunittest.php` to a test directory.
 
@@ -34,9 +34,15 @@ checkreport();
 ?>
 ```
 
-Alternatively, if you have lots of test files, your main test file can look
+Alternatively, you may be able to use `checkglobber()`.
+
+It ain't pretty!!!
+
+## checkglobber()
+
+If you have lots of test files, your main test file can look
 like the following and `checkglobber()` will glob() looking for test files
-named `test-*.php` in the current directory.
+named `test-*.php` in the current directory and execute them:
 
 ```php
 <?php
@@ -48,9 +54,28 @@ checkreport();
 ?>
 ```
 
-It ain't pretty!!!
+## checkfeature( $heading, $func )
+
+Groups together a bunch of related tests.  The `$heading` is printed out and
+`$func` is run.
+
+Example:
+
+```php
+checkfeature( "Example Tests", function() {
+    check( ... );
+    check( ... );
+    ...
+});
+```
+
+## checkheading( $heading )
+
+Outputs a heading for a section of tests.
 
 ## check( $statement, $expected )
+
+The primary testing function.
 
 The `$statement` parameter is a string containing a PHP statement to be
 exceuted.

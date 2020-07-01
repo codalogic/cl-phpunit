@@ -57,6 +57,14 @@ checkglobber();
 
 checktodo( "Bring peace to the world" );
 
+$is_feature_test_run = False;
+checkfeature( "checkfeature() Tests", function()
+{
+    global $is_feature_test_run;
+    $is_feature_test_run = True;
+});
+check( "\$is_feature_test_run should be True after checkfeature() test", $is_feature_test_run, True );
+
 checkreport();
 
 checkoutputclose();

@@ -91,7 +91,11 @@ Not ok: "Too much effort" at test-cl-phpunittest.php(54)
     ok: Extra2 --> Extra2
   TODO: "Bring peace to the world" at test-cl-phpunittest.php(58)
 
+       checkfeature() Tests at: test-cl-phpunittest.php(65)
+       ====================================================
+    ok: $is_feature_test_run should be True after checkfeature() test --> True
+
     TODOs:
     - "Bring peace to the world" at test-cl-phpunittest.php(58)
 
-16 fails, 1 todos, 35 tests
+16 fails, 1 todos, 36 tests

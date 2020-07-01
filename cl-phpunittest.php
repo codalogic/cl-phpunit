@@ -12,6 +12,12 @@ function checkglobber()
     }
 }
 
+function checkfeature( $heading, $func )
+{
+    checkheading( $heading );
+    $func();
+}
+
 function  checkheading( $heading )
 {
     global $checktests;
