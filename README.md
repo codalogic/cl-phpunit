@@ -54,6 +54,34 @@ checkreport();
 ?>
 ```
 
+__N.B. A issue with `checkglobber()`__ is that included files end up being in the
+scope of the `checkglobber()` function.  This is generally not a probelm unless
+an included file attempts to set global variables (without explicitly
+identifying the variables as global).  To get around this problem, instead of:
+
+```php
+<?php
+$my_global_variable = "Foo";
+?>
+```
+
+do:
+
+```php
+<?php
+global $my_global_variable;
+$my_global_variable = "Foo";
+?>
+```
+
+Alternatively, rather than calling `checkglober()`, use the following code in
+its place:
+
+```php
+foreach( glob( 'test-*.php' ) as $test_file )
+    include_once( $test_file );
+```
+
 ## checkfeature( $heading, $func )
 
 Groups together a bunch of related tests.  The `$heading` is printed out and
