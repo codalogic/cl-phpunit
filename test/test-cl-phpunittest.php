@@ -65,9 +65,12 @@ checkfeature( "checkfeature() Tests", function()
 });
 check( "\$is_feature_test_run should be True after checkfeature() test", $is_feature_test_run, True );
 
-checkwrap( 40 );
+checkheading( "checkwrap() tests" );
+$old_wrap = checkwrap( 40 );
+check( "Old wrap setting should be -1", $old_wrap, -1 );
 check( "A random sounding test description with a_very_long_word_in_it_to_make_life_difficult() to exercise checkwrap() functionality", True, True );
-checkwrap( 0 );
+$second_old_wrap = checkwrap( $old_wrap );
+check( "Second old wrap setting should be 40", $second_old_wrap, 40 );
 
 checkreport();
 

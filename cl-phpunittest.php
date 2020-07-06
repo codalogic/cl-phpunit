@@ -123,7 +123,9 @@ function checkwrap( $wrap_length )
 {
     global $checkwrap;
 
+    $old_wrap = $checkwrap;
     $checkwrap = $wrap_length;
+    return $old_wrap;
 }
 
 function checkwrap__do_wrapping( $message )

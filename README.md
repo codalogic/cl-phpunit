@@ -183,6 +183,8 @@ Display tally of number of tests performed and number of fails.
 Wraps the output messages at `$wrap_length` characters.  Wrapping is disabled
 by default.  Using `checkwrap( 0 )` disables wrapping if previously enabled.
 
+`checkwrap()` returns the old wrap value.
+
 ## checkoutputclose()
 
 Stop printing results to the logging file and close it.

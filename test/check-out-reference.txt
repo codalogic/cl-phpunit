@@ -94,14 +94,20 @@ Not ok: "Too much effort" at test-cl-phpunittest.php(54)
        checkfeature() Tests at: test-cl-phpunittest.php(65)
        ====================================================
     ok: $is_feature_test_run should be True after checkfeature() test --> True
+
+       checkwrap() tests at: test-cl-phpunittest.php(68)
+       =================================================
+    ok: Old wrap setting should be -1
+          --> -1
     ok: A random sounding test
           description with
           a_very_long_word_in_it_to_make
           _life_difficult() to exercise
           checkwrap() functionality -->
           True
+    ok: Second old wrap setting should be 40 --> 40
 
     TODOs:
     - "Bring peace to the world" at test-cl-phpunittest.php(58)
 
-16 fails, 1 todos, 37 tests
+16 fails, 1 todos, 39 tests
