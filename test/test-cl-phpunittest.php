@@ -65,6 +65,10 @@ checkfeature( "checkfeature() Tests", function()
 });
 check( "\$is_feature_test_run should be True after checkfeature() test", $is_feature_test_run, True );
 
+checkwrap( 40 );
+check( "A random sounding test description with a_very_long_word_in_it_to_make_life_difficult() to exercise checkwrap() functionality", True, True );
+checkwrap( 0 );
+
 checkreport();
 
 checkoutputclose();
@@ -73,5 +77,5 @@ checkoutputclose();
 if( str_replace( "\r\n", "\n", file_get_contents("check-out.txt")) === str_replace( "\r\n", "\n", file_get_contents("check-out-reference.txt")) )
     echo "\nOK: TEST PASSED - Comparison against reference is OK\n";
 else
-    echo "\nFAIL: TEST FAILED - Comparison against reference is FAILED\n";
+    echo "\nFAIL: TEST FAILED - Comparison against reference has FAILED\n";
 ?>

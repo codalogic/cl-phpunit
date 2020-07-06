@@ -178,6 +178,11 @@ Record a TODO task in the output.
 
 Display tally of number of tests performed and number of fails.
 
+## checkwrap( $wrap_length )
+
+Wraps the output messages at `$wrap_length` characters.  Wrapping is disabled
+by default.  Using `checkwrap( 0 )` disables wrapping if previously enabled.
+
 ## checkoutputclose()
 
 Stop printing results to the logging file and close it.
