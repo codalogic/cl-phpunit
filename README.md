@@ -178,12 +178,17 @@ Record a TODO task in the output.
 
 Display tally of number of tests performed and number of fails.
 
-## checkwrap( $wrap_length )
+## checkwrap( [ $wrap_length ] )
 
-Wraps the output messages at `$wrap_length` characters.  Wrapping is disabled
-by default.  Using `checkwrap( 0 )` disables wrapping if previously enabled.
+Specifies that future output messages should be wrapped at `$wrap_length`
+characters.  Wrapping is disabled by default.  Using `checkwrap( 0 )` disables
+wrapping if previously enabled.
 
-`checkwrap()` returns the old wrap value.
+If called with a parameter `checkwrap` returns the old wrap value.
+If called without a parameter `checkwrap()` returns the current wrap value.
+
+If `checkwrap()` is called in a `checkfeature()` function the original wrap
+setting is restored once the function has completed.
 
 ## checkoutputclose()
 

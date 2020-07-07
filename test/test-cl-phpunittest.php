@@ -67,10 +67,21 @@ check( "\$is_feature_test_run should be True after checkfeature() test", $is_fea
 
 checkheading( "checkwrap() tests" );
 $old_wrap = checkwrap( 40 );
-check( "Old wrap setting should be -1", $old_wrap, -1 );
+check( "Old wrap setting should be 0", $old_wrap, 0 );
 check( "A random sounding test description with a_very_long_word_in_it_to_make_life_difficult() to exercise checkwrap() functionality", True, True );
+check( "Querying checkwrap() without a parameter should return the current wrap length of 40", checkwrap(), 40 );
 $second_old_wrap = checkwrap( $old_wrap );
 check( "Second old wrap setting should be 40", $second_old_wrap, 40 );
+
+checkfeature( "checkwrap() in checkfeature() Tests", function()
+{
+    $old_wrap = checkwrap( 40 );
+    check( "After setting checkwarp( 40 ) in checkfeature() returned old wrap setting should be 0", $old_wrap, 0 );
+    $old_wrap = checkwrap();
+    check( "After querying checkwarp() in checkfeature() returned old wrap setting should be 0", $old_wrap, 40 );
+});
+$old_wrap = checkwrap();
+check( "Wrap setting after leaving checkwrap() in checkfeature() tests should be reverted to 0", $old_wrap, 0 );
 
 checkreport();
 

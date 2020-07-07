@@ -2,7 +2,7 @@
 $checkfails = $checktests = 0;
 $checkfout = NULL;
 $checktodos = [];
-$checkwrap = -1;
+$checkwrap = 0;
 
 function checkglobber()
 {
@@ -13,8 +13,12 @@ function checkglobber()
 
 function checkfeature( $heading, $func )
 {
+    global $checkwrap;
+
     checkheading( $heading );
+    $org_checkwrap = $checkwrap;
     $func();
+    $checkwrap = $org_checkwrap;
 }
 
 function  checkheading( $heading )
@@ -119,28 +123,39 @@ function checkcallfile()
     return checkcallsite( False );
 }
 
-function checkwrap( $wrap_length )
+function checkwrap( $wrap_length = NULL )
 {
     global $checkwrap;
 
     $old_wrap = $checkwrap;
-    $checkwrap = $wrap_length;
+    if( isset( $wrap_length ) )
+        $checkwrap = $wrap_length;
     return $old_wrap;
 }
 
 function checkwrap__do_wrapping( $message )
 {
+    $parts = explode( "\n", $message );
+    $wrapped_parts = [];
+    foreach( $parts as $p )
+        $wrapped_parts[] = checkwrap__do_line_wrapping( $p );
+    return implode( "\n", $wrapped_parts );
+}
+
+function checkwrap__do_line_wrapping( $line )
+{
     global $checkwrap;
 
-    $min_warp = 10;   # Need to accept more on each iteration than we insert in to avoid infinite insertions
+    static $wrap_insertion = "\n            ";
+    $min_warp = strlen( $wrap_insertion ) + 2;   # Need to accept more on each iteration than we insert in to avoid infinite insertions
 
     if( $checkwrap > $min_warp ) {
         $next_insert = $checkwrap;
-        while( strlen( $message ) > $next_insert ) {
-            if( ! ctype_space( $message[$next_insert] ) ) {
+        while( strlen( $line ) > $next_insert ) {
+            if( ! ctype_space( $line[$next_insert] ) ) {
                 $next_word_insert = $next_insert;
                 $max_backtracks = $checkwrap - $min_warp;
-                while( $max_backtracks > 0 && ! ctype_space( $message[$next_word_insert] ) ) {
+                while( $max_backtracks > 0 && ! ctype_space( $line[$next_word_insert] ) ) {
                     --$next_word_insert;
                     --$max_backtracks;
                 }
@@ -148,13 +163,13 @@ function checkwrap__do_wrapping( $message )
                     $next_insert = $next_word_insert;
             }
             $replace_count = 0;
-            while( ctype_space( $message[$next_insert + $replace_count] ) )
+            while( ctype_space( $line[$next_insert + $replace_count] ) )
                 ++$replace_count;
-            $message = substr_replace( $message, "\n          ", $next_insert, $replace_count );
+            $line = substr_replace( $line, $wrap_insertion, $next_insert, $replace_count );
             $next_insert += $checkwrap + 1;     # +1 for invisible \n inserted
         }
     }
-    return $message;
+    return $line;
 }
 
 function checkprint( $message )

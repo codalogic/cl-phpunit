@@ -97,17 +97,33 @@ Not ok: "Too much effort" at test-cl-phpunittest.php(54)
 
        checkwrap() tests at: test-cl-phpunittest.php(68)
        =================================================
-    ok: Old wrap setting should be -1
-          --> -1
+    ok: Old wrap setting should be 0 -->
+            0
     ok: A random sounding test
-          description with
-          a_very_long_word_in_it_to_make
-          _life_difficult() to exercise
-          checkwrap() functionality -->
-          True
+            description with
+            a_very_long_word_in_it_to_ma
+            ke_life_difficult() to
+            exercise checkwrap()
+            functionality --> True
+    ok: Querying checkwrap() without a
+            parameter should return the
+            current wrap length of 40
+            --> 40
     ok: Second old wrap setting should be 40 --> 40
+
+       checkwrap() in checkfeature() Tests at: test-cl-phpunittest.php(82)
+       ===================================================================
+    ok: After setting checkwarp( 40 ) in
+            checkfeature() returned old
+            wrap setting should be 0 -->
+            0
+    ok: After querying checkwarp() in
+            checkfeature() returned old
+            wrap setting should be 0 -->
+            40
+    ok: Wrap setting after leaving checkwrap() in checkfeature() tests should be reverted to 0 --> 0
 
     TODOs:
     - "Bring peace to the world" at test-cl-phpunittest.php(58)
 
-16 fails, 1 todos, 39 tests
+16 fails, 1 todos, 43 tests
