@@ -6,19 +6,19 @@ checkheading( "This section should all PASS (OK)" );
 check( 1, 1 );
 check( 1 + 1, 2 );
 check( "Number test", 1, 1 );
-check( "1", 1 );
-check( "1 + 1", 2 );
+checkeval( "1", 1 );
+checkeval( "1 + 1", 2 );
 
-check( "Test", "Test" );
+checkeval( "Test", "Test" );
 check( "String test", "Test", "Test" );
 
-check( "strlen( 'Test' )", 4 );
+checkeval( "strlen( 'Test' )", 4 );
 check( "strlen() should indicate 'Test' is 4 characters long", strlen( 'Test' ), 4 );
 
-check( "1 == 1", True );
-check( "1 != 1", False );
+checkeval( "1 == 1", True );
+checkeval( "1 != 1", False );
 check( True, True );
-check( "True", True );
+checkeval( "True", True );
 
 checkstr( "Test", "Test" );
 checkstr( "String test", "Test", "Test" );
@@ -33,17 +33,17 @@ check( "Test", 2 ); # Type mismatch
 
 check( 1, 2 );
 check( 1 + 1, 3 );
-check( "1 + 1", 3 );
+checkeval( "1 + 1", 3 );
 
-check( "Test", "Test2" );
+checkeval( "Test", "Test2" );
 check( "String test", "Test", "Test2" );
 
-check( "strlen( 'Test' )", 5 );
+checkeval( "strlen( 'Test' )", 5 );
 
-check( "1 == 1", False );
-check( "1 != 1", True );
+checkeval( "1 == 1", False );
+checkeval( "1 != 1", True );
 check( True, False );
-check( "True", False );
+checkeval( "True", False );
 
 checkstr( "Test", "Test2" );
 checkstr( "String test", "Test", "Test2" );

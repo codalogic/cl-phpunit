@@ -39,26 +39,28 @@ function check( $what, $result, $expected = NULL )
     # Allow $what to be optional
     if( ! isset( $expected ) ) {
         $expected = $result;
-        $result = eval( "return " . checkdisplayable( $what ) . ";" );
-    }
-
-    checkcompare( $what, $result, $expected );
-}
-
-function checkstr( $what, $result, $expected = NULL )
-{
-    # Allow $what to be optional
-    if( ! isset( $expected ) ) {
-        $expected = $result;
         $result = $what;
     }
 
     checkcompare( $what, $result, $expected );
 }
 
-function checkrtrim( $what, $result, $expected = NULL )
+function checkeval( $what, $expected )
 {
-    check( rtrim( $what ), rtrim( $result ), isset( $expected ) ? rtrim( $expected ) : NULL );
+    $result = eval( "return " . checkdisplayable( $what ) . ";" );
+
+    checkcompare( $what, $result, $expected );
+}
+
+function checkstr( $what, $result, $expected = NULL )
+{
+    // checkstr() is now a legacy function due to introduction of checkeval
+    check( $what, $result, $expected );
+}
+
+function checkrtrim( $what, $expected )
+{
+    checkeval( rtrim( $what ), rtrim( $expected ) );
 }
 
 function checkstrrtrim( $what, $result, $expected = NULL )

@@ -101,19 +101,18 @@ checkfeature( "Example Tests", function() {
 
 Outputs a heading for a section of tests.
 
-## check( $statement, $expected )
+## check( $result, $expected )
 
 The primary testing function.
 
-The `$statement` parameter is a string containing a PHP statement to be
-exceuted.
+The `$result` parameter is the result of an executed test.
 
 The `$expected` parameter is the expected result.  It can be any PHP type.
 
 Example:
 
 ```php
-check( "is_digit( '1' )", True );
+check( strlen( 'Test' ), 4 );
 ```
 
 ## check( $description, $result, $expected )
@@ -133,15 +132,24 @@ Example:
 check( "strlen() should indicate 'Test' is 4 characters long", strlen( 'Test' ), 4 );
 ```
 
-Note that the test that is run is NOT given to the function as a string.
+## checkeval( $statement, $expected )
+
+A short form of the 3 argument form of `check()`.
+
+The `$statement` parameter is a string containing a PHP statement to be
+exceuted using PHP's `eval()`.
+
+The `$expected` parameter is the expected result.  It can be any PHP type.
+
+Example:
+
+```php
+checkeval( "strlen( 'Test' )", 4 );
+```
 
 ## checkstr( $result, $expected )
 
-If you want to compare string values without executing what is in the string
-use `checkstr()`.
-
-The `$result` parameter is a string to be compared against the `$expected`
-parameter.  Both are strings.
+A legacy version of `check( $result, $expected )`.
 
 Example:
 
@@ -151,7 +159,7 @@ checkstr( $output, "String 1" );
 
 ## checkrtrim( $statement, $expected )
 
-Like `check()` but right trims the string returned by evaluating `$statement`
+Like `checkeval( $statement, $expected )` but right trims the string returned by evaluating `$statement`
 before testing.
 
 ## checkstrtrim( $result, $expected )
