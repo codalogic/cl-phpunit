@@ -58,14 +58,22 @@ function checkstr( $what, $result, $expected = NULL )
     check( $what, $result, $expected );
 }
 
-function checkrtrim( $what, $expected )
+function checkrtrim( $what, $result, $expected = NULL )
 {
-    checkeval( rtrim( $what ), rtrim( $expected ) );
+    check( rtrim( $what ), rtrim( $result ), isset( $expected ) ? rtrim( $expected ) : NULL );
+}
+
+function checkevalrtrim( $what, $expected )
+{
+    $result = eval( "return " . checkdisplayable( $what ) . ";" );
+
+    checkcompare( rtrim( $what ), rtrim( $result ), rtrim( $expected ) );
 }
 
 function checkstrrtrim( $what, $result, $expected = NULL )
 {
-    checkstr( rtrim( $what ), rtrim( $result ), isset( $expected ) ? rtrim( $expected ) : NULL );
+    // checkstrrtrim() is now a legacy function due to introduction of checkeval
+    checkrtrim( $what, $result, $expected );
 }
 
 function checkfailed( $reason )

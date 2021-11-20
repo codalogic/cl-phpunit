@@ -157,7 +157,15 @@ Example:
 checkstr( $output, "String 1" );
 ```
 
-## checkrtrim( $statement, $expected )
+## checkrtrim( $result, $expected )
+
+Like `check( $result, $expected )` but right trims the `$result` string before testing.
+
+## checkrtrim( $description, $result, $expected )
+
+Like `check( $description, $result, $expected )` but right trims the `$result` string before testing.
+
+## checkevalrtrim( $statement, $expected )
 
 Like `checkeval( $statement, $expected )` but right trims the string returned by evaluating `$statement`
 before testing.
